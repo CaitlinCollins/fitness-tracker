@@ -2,13 +2,14 @@ const router = require('express').Router();
 const { Exercise } = require('../models/Exercise');
 
 
-// Add to Recent Workout
+// Add exercise to recent workout
 
 
-// Add to new Workout
+// Add exercise to new workout
 
 
 // Get Stats
+
 
 // Post to Stats
 

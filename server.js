@@ -21,7 +21,7 @@ require("./routes/htmlRoutes")(app);
 require("./routes/apiRoutes")(app);
 
 // Connect to Mongodb
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout_db", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true});
 
 // Listener
 app.listen(PORT, () => {
