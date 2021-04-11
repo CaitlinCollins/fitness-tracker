@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const { Exercise } = require('../models/Exercise');
+// const router = require('express').Router();
+// const { Exercise } = require('../models/Exercise');
 
 
 // Add exercise to recent workout
