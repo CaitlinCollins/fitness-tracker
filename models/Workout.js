@@ -15,9 +15,6 @@ const WorkoutSchema = new Schema ({
             name: {
                 type: String
             },
-            duration: {
-                type: Number
-            },
             weight: {
                 type: Number
             },
@@ -32,10 +29,18 @@ const WorkoutSchema = new Schema ({
             },
             distance: {
                 type: Number
-            }  
+            },
          }
     ]
 });
+
+// WorkoutSchema.methods.totalDuration = function() {
+
+// }
+
+// WorkoutSchema.methods.totalWeight = function() {
+
+// }
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
