@@ -5,6 +5,7 @@ const Workout = require('../models/Workout');
 // get all workouts
 router.get('/api/workouts', (req, res) => {
     Workout.find({})
+    .sort({_id: -1})
     .then(data => {
         console.log(data)
         res.json(data);
@@ -24,8 +25,8 @@ router.get('api/workouts/range', (req, res) => {
 router.post('/api/workouts', ({body}, res) => {
     Workout.create(body)
     .then(data => {
-        res.json(data);
         console.log(data);
+        res.json(data);
     })
     .catch(err => {
         res.status(400).json(err);
@@ -35,8 +36,15 @@ router.post('/api/workouts', ({body}, res) => {
 
 // Add exercise to recent workout
 router.put('/api/workouts/:id', ({body, params}, res) => {
-    Workout.updateOne(body)
-})
+    Workout.updateOne({ _id : params.id }, {$push: { exercises: body }})
+    .then(data => {
+        console.log(data);
+        res.json(data);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+});
 
 
 
