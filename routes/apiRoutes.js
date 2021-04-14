@@ -2,10 +2,9 @@ const router = require('express').Router();
 const Workout = require('../models/Workout');
 
 
-// get all workouts
+// get recent workout
 router.get('/api/workouts', (req, res) => {
     Workout.find({})
-    .sort({_id: -1}).limit(1)
     .then(data => {
         console.log(data)
         res.json(data);
@@ -18,7 +17,7 @@ router.get('/api/workouts', (req, res) => {
 //get workouts in range
 router.get('/api/workouts/range', (req, res) => {
     Workout.find({})
-    .sort({_id: -1}).limit(7)
+    .limit(7)
     .then(data => {
         console.log(data);
         res.json(data);
