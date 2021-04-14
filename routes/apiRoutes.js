@@ -5,7 +5,7 @@ const Workout = require('../models/Workout');
 // get all workouts
 router.get('/api/workouts', (req, res) => {
     Workout.find({})
-    .sort({_id: -1})
+    .sort({_id: -1}).limit(1)
     .then(data => {
         console.log(data)
         res.json(data);
