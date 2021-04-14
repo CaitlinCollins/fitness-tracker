@@ -11,18 +11,33 @@ router.get('/api/workouts', (req, res) => {
     })
     .catch(err => {
         res.status(400).json(err);
-    })
+    });
+});
+
+//get workouts in range
+router.get('api/workouts/range', (req, res) => {
+    Workout.aggregate({})
 })
 
-// Add exercise to recent workout
 
 // Add exercise to new workout
+router.post('/api/workouts', ({body}, res) => {
+    Workout.create(body)
+    .then(data => {
+        res.json(data);
+        console.log(data);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+});
 
 
-// Get Stats
+// Add exercise to recent workout
+router.put('/api/workouts/:id', ({body, params}, res) => {
+    Workout.updateOne(body)
+})
 
-
-// Post to Stats
 
 
 
