@@ -17,7 +17,7 @@ router.get('/api/workouts', (req, res) => {
 //get workouts in range
 router.get('/api/workouts/range', (req, res) => {
     Workout.find({})
-    .limit(7)
+    .sort({day: -1}).limit(7)
     .then(data => {
         console.log(data);
         res.json(data);
