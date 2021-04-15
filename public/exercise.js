@@ -114,6 +114,8 @@ async function handleFormSubmit(event) {
     workoutData.duration = Number(resistanceDurationInput.value.trim());
   }
 
+  console.log(workoutData);
+
   await API.addExercise(workoutData);
   clearInputs();
   toast.classList.add("success");
@@ -128,7 +130,7 @@ function handleToastAnimationEnd() {
 
 function clearInputs() {
   cardioNameInput.value = "";
-  nameInput.value = "";
+  nameInput.value = ""; 
   setsInput.value = "";
   distanceInput.value = "";
   durationInput.value = "";

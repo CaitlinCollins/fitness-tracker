@@ -30,6 +30,7 @@ router.get('/api/workouts/range', (req, res) => {
 
 // Add exercise to new workout
 router.post('/api/workouts', ({body}, res) => {
+    console.log("BODY!!!!!!!!", body)
     Workout.create(body)
     .then(data => {
         console.log(data);
@@ -43,9 +44,9 @@ router.post('/api/workouts', ({body}, res) => {
 
 // Add exercise to recent workout
 router.put('/api/workouts/:id', ({body, params}, res) => {
-    Workout.updateOne({ _id : params.id }, {$push: { exercises: body }})
+    console.log("This is the body", body)
+    Workout.updateOne({ _id : params.id }, {$push: { exercises: body }}, {new: true})
     .then(data => {
-        console.log(data);
         res.json(data);
     })
     .catch(err => {

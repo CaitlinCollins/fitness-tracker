@@ -21,6 +21,7 @@ const API = {
 
     const json = await res.json();
 
+    console.log("JSON", json);
     return json;
   },
   async createWorkout(data = {}) {
