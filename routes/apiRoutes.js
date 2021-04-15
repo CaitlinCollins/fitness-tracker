@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Workout = require('../models/Workout');
 
 
-// get recent workout
+// get workouts
 router.get('/api/workouts', (req, res) => {
     Workout.find({})
     .then(data => {
@@ -20,7 +20,7 @@ router.get('/api/workouts/range', (req, res) => {
     .sort({day: -1}).limit(7)
     .then(data => {
         console.log(data);
-        res.json(data);
+        res.json(data.reverse());
     })
     .catch(err => {
         res.status(400).json(err);
